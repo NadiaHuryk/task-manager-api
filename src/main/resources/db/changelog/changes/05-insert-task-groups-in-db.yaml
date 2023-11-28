@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-initial-task-groups
+      author: Nadia Huryk
+      changes:
+        - sql:
+            sql: |
+              INSERT INTO task_groups (id, name)
+              VALUES
+              (1, 'Java'),
+              (2, 'UI/UX Design'),
+              (3, 'QA');
