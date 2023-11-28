@@ -23,30 +23,23 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(nullable = false)
     private String title;
-
     @Column(nullable = false)
     private String description;
-
     @Column(name = "priority", nullable = false)
     @Enumerated(EnumType.STRING)
     private Priority priority;
-
     @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
     private Status status;
-
     @Column(name = "due_date")
     private LocalDate dueDate;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private User user;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "taskgroup_id")
     @ToString.Exclude
