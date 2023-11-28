@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/01-create-users-table.yaml
+  - include:
+      file: db/changelog/changes/02-create-task-groups-table.yaml
+  - include:
+      file: db/changelog/changes/03-create-tasks-table.yaml
+  - include:
+      file: db/changelog/changes/04-insert-users-in-db.yaml
+  - include:
+      file: db/changelog/changes/05-insert-task-groups-in-db.yaml
+  - include:
+      file: db/changelog/changes/06-insert-tasks-in-db.yaml
