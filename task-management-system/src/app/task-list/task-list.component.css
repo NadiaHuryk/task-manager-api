@@ -1,0 +1,253 @@
+.task-view__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.task-view {
+  display: flex;
+  width: 100%;
+}
+
+.task-view__workspace-container {
+  display: flex;
+  padding: 12px 24px 16px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--Neutral-1);
+}
+
+.task-view__workspace-name {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  gap: 16px;
+  color: var(--character-title-85);
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.task-view__main {
+  display: flex;
+  padding: 0 24px;
+  margin-left: 24px;
+  margin-top: 16px;
+  margin-right: 24px;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: stretch;
+  background: var(--Neutral-1);
+}
+
+.task-view__header {
+  display: flex;
+  padding: 16px 8px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.task-view__title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: var(--character-title-85);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  margin: 0;
+}
+
+
+.task-view__control-elements-container {
+  display: flex;
+  height: 32px;
+  align-items: center;
+  gap: 16px;
+}
+
+.task-view__control-elements {
+ display: flex;
+}
+
+.task-view__search-icon {
+  display: flex;
+  padding: 9px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  border-top: 1px solid var(--border-color-neutral);
+  border-right: 1px solid var(--border-color-neutral);
+  border-bottom: 1px solid var(--border-color-neutral);
+}
+
+.task-view__search-input {
+  display: flex;
+  width: 232px;
+  padding: 4px 12px;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid var(--border-color-neutral);
+}
+
+.task-view__add-button {
+  display: flex;
+  padding: 4px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 2px;
+  border: 1px solid var(--Primary-6);
+  background: var(--Primary-6);
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
+  color: var(--Neutral-1);
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  box-sizing: border-box;
+}
+
+.task-view__content {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.task-view__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.task-view__content th {
+  border-bottom: 1px solid var(--Conditional-divider);
+  background: var(--background-neutral);
+  position: relative;
+  padding-left: 16px;
+}
+
+.task-view__content th:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50%;
+  border-left: 1px solid var(--border-color-neutral);
+}
+
+.task-view__content input[type="checkbox"] {
+  display: flex;
+  padding: 16px 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.task-view__task-name {
+  color: var(--Primary-6);
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.task-view__task-description {
+  color: var(--character-title-85);
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.priority-high, .priority-medium, .priority-low {
+  padding: 8px;
+  display: inline-block;
+}
+
+.priority-high {
+  color:  var(--Dust-Red-6);
+  background-color: var(--Dust-Red-1);
+  border: 1px solid var(--Dust-Red-6);
+
+}
+
+.priority-medium {
+  color: var(--Sunset-Orange-6);
+  background-color: var(--Sunset-Orange-1);
+  border: 1px solid var(--Sunset-Orange-6);
+}
+
+.priority-low {
+  color: var(--character-title-85);
+  background-color: var(--Neutral-1);
+  border: 1px solid var(--Neutral-5);
+}
+
+.task-view__ span {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.status-not-started {
+  background-color: var(--Dust-Red-5);
+}
+
+.status-in-progress {
+  background-color: var(--Primary-6);
+}
+
+.status-completed {
+  background-color: var(--Polar-Green-6);
+}
+
+.task-view__edit-btn {
+  color: var(--Primary-6);
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  margin-right: 8px;
+  background: var(--Neutral-1);
+  border: none;
+  padding: 0 8px 0 0;
+  border-right: 1px solid var(--border-color-neutral);
+}
+
+.task-view__delete-btn {
+  color: var(--Dust-Red-5);
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  background: var(--Neutral-1);
+  border: none;
+}
+
