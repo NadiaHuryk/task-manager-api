@@ -1,0 +1,239 @@
+.task-manager {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 384px;
+}
+
+.task-manager__container {
+  display: flex;
+  padding: 4px 0 4px 3px;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25px;
+  box-sizing: border-box;
+  width: 295px;
+}
+
+.task-manager__title {
+  color: var(--character-title-85);
+  font-family: 'Nunito', sans-serif;
+  font-size: 33px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 38px;
+  margin: 0;
+  width: 269px;
+  white-space: nowrap;
+}
+
+.task-manager__logo {
+  width: 52px;
+  height: 38px;
+}
+
+.task-manager__description {
+  color: var(--character-secondary-45);
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.registration {
+  display: flex;
+  justify-content: center;
+}
+
+.registration__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.auth-switcher {
+  display: flex;
+  height: 46px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.auth-switcher__links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.auth-switcher__link {
+  text-decoration: none;
+  color: var(--character-title-85);
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.auth-switcher__link--signup {
+  position: relative;
+  color: var(--Primary-6);
+}
+
+.auth-switcher__link--signup::after, .auth-switcher__link--active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 2px;
+  background-color: var(--Primary-6);
+}
+
+.auth-switcher__link--active {
+  color: var(--Primary-6);
+}
+
+.registration__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+.registration__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 360px;
+  height: 40px;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 2px;
+  border: 1px solid var(--Neutral-5);
+  background: var(--Neutral-1);
+  box-sizing: border-box;
+}
+
+.registration__form-group input {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  text-align: center;
+  padding: 0;
+  width: 100%;
+  background-color: var(--Neutral-1);
+}
+
+.registration__form-group input:focus {
+  outline: none;
+}
+
+.registration__form-group:focus-within {
+  border-color: var(--Primary-6);
+}
+
+.registration__remember-me-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--character-title-85);
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.registration__checkbox {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background: var(--Primary-6);
+}
+
+.registration__form-options {
+  display: flex;
+  width: 360px;
+  justify-content: space-between;
+}
+
+.registration__button-container {
+  display: flex;
+  height: 40px;
+  width: 116px;
+  padding: 6px 15px;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid var(--Primary-6);
+  background: var(--Primary-6);
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
+}
+
+.registration__sign-up-button {
+  color:  var(--Neutral-1);
+  text-align: center;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  background: var(--Primary-6);
+  font-weight: 400;
+  line-height: 24px;
+  border: none;
+  padding: 0;
+}
+
+.quick-sign-container {
+  display: flex;
+  width: 360px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quick-sign-container__section {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.quick-sign-container__text {
+  margin: 0;
+  color: var(--character-title-85);
+  text-align: center;
+  font-family: Roboto,sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.quick-sign-container__icons {
+  display: flex;
+  gap: 12px;
+}
+
+
+.registration__error-message {
+  color:var(--Dust-Red-5);
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.registration__form-input-group {
+  display: flex;
+}

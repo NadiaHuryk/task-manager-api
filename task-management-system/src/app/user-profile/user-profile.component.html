@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div class="profile">
+  <app-sidebar></app-sidebar>
+  <div class="profile__container">
+  <div class="profile__header-greeting">
+    <p class="profile__title">Profile</p>
+    <div class="profile__greeting-container">
+    <p class="profile__greeting">Hello, {{ displayedUser.name }}!</p>
+    <button (click)="updateUser()" type="submit" class="profile__save-button">Save</button>
+    </div>
+  </div>
+
+    <div class="profile__main">
+      <form class="profile__form">
+        <div class="profile__form-group">
+          <img class="profile__image" *ngIf="profilePictureUrl" [src]="profilePictureUrl" alt="Profile Picture">
+          <input type="file" #fileInput style="display: none;" (change)="onFileSelected($event)">
+          <div class="profile__upload-button-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M6.90254 9.32649C6.91423 9.34143 6.92917 9.35352 6.94623 9.36183C6.96328 9.37014 6.982 9.37445 7.00098 9.37445C7.01995 9.37445 7.03867 9.37014 7.05573 9.36183C7.07278 9.35352 7.08772 9.34143 7.09941 9.32649L8.84941 7.11243C8.91348 7.03118 8.85566 6.91087 8.75098 6.91087H7.59316V1.62337C7.59316 1.55462 7.53691 1.49837 7.46816 1.49837H6.53066C6.46191 1.49837 6.40566 1.55462 6.40566 1.62337V6.90931H5.25098C5.14629 6.90931 5.08848 7.02962 5.15254 7.11087L6.90254 9.32649ZM12.7197 8.77962H11.7822C11.7135 8.77962 11.6572 8.83587 11.6572 8.90462V11.3109H2.34473V8.90462C2.34473 8.83587 2.28848 8.77962 2.21973 8.77962H1.28223C1.21348 8.77962 1.15723 8.83587 1.15723 8.90462V11.9984C1.15723 12.2749 1.38066 12.4984 1.65723 12.4984H12.3447C12.6213 12.4984 12.8447 12.2749 12.8447 11.9984V8.90462C12.8447 8.83587 12.7885 8.77962 12.7197 8.77962Z" fill="black" fill-opacity="0.85"/>
+            </svg>
+            <button type="button" (click)="fileInput.click()" class="profile__upload-button">Download Photo</button>
+          </div>
+        </div>
+
+        <div class="profile__field">
+          <label for="name" class="profile__label">
+            <div class="profile__label-container">
+              <span class="profile__label-required">*</span>
+              <span class="profile__label-text">Name</span>
+              <span class="profile__label-pointer">:</span>
+            </div>
+          </label>
+          <input class="profile__input" type="text" id="name" [(ngModel)]="editableUser.name" name="name">
+        </div>
+
+        <div class="profile__field">
+          <label for="email" class="profile__label">
+            <div class="profile__label-container">
+              <span class="profile__label-required">*</span>
+              <span class="profile__label-text">Email</span>
+              <span class="profile__label-pointer">:</span>
+            </div>
+          </label>
+          <input class="profile__input" type="email" id="email" [(ngModel)]="editableUser.email" name="email">
+        </div>
+
+        <div class="profile__field">
+          <label for="phone" class="profile__label">
+            <div class="profile__label-container">
+              <span class="profile__label-text profile__phone-label">Phone</span>
+              <span class="profile__label-pointer">:</span>
+            </div>
+          </label>
+          <input class="profile__input" type="text" id="phone" [(ngModel)]="editableUser.phone" name="phone" placeholder="+380991111111">
+        </div>
+      </form>
+
+      <button class="profile__delete-button" (click)="deleteAccount()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16">
+          <path d="M5.28544 2.14124H5.14258C5.22115 2.14124 5.28544 2.07696 5.28544 1.99839V2.14124H10.714V1.99839C10.714 2.07696 10.7783 2.14124 10.8569 2.14124H10.714V3.42696H11.9997V1.99839C11.9997 1.36803 11.4872 0.85553 10.8569 0.85553H5.14258C4.51222 0.85553 3.99972 1.36803 3.99972 1.99839V3.42696H5.28544V2.14124ZM14.2854 3.42696H1.71401C1.39794 3.42696 1.14258 3.68232 1.14258 3.99839V4.56982C1.14258 4.64839 1.20686 4.71267 1.28544 4.71267H2.36401L2.80508 14.052C2.83365 14.6609 3.33722 15.1412 3.94615 15.1412H12.0533C12.664 15.1412 13.1658 14.6627 13.1944 14.052L13.6354 4.71267H14.714C14.7926 4.71267 14.8569 4.64839 14.8569 4.56982V3.99839C14.8569 3.68232 14.6015 3.42696 14.2854 3.42696ZM11.9158 13.8555H4.08365L3.65151 4.71267H12.3479L11.9158 13.8555Z" fill="#FF4D4F"/>
+        </svg>
+        Delete account
+      </button>
+    </div>
+  </div>
+</div>

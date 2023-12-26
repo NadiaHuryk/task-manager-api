@@ -28,6 +28,10 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String password;
 
+    private String phone;
+    @Column(length = 50000000, name = "profile_picture")
+    private byte[] profilePicture;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();
