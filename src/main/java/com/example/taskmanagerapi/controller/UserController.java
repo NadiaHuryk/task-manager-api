@@ -1,13 +1,12 @@
 package com.example.taskmanagerapi.controller;
 
-import com.example.taskmanagerapi.dto.mapper.UserMapper;
+import com.example.taskmanagerapi.constants.Constants;
 import com.example.taskmanagerapi.dto.request.UserLoginRequestDto;
 import com.example.taskmanagerapi.dto.request.UserRegistrationRequestDto;
 import com.example.taskmanagerapi.dto.request.UserRequestDto;
 import com.example.taskmanagerapi.dto.response.UserLoginResponseDto;
 import com.example.taskmanagerapi.dto.response.UserResponseDto;
 import com.example.taskmanagerapi.exeption.UsernameNotFoundException;
-import com.example.taskmanagerapi.model.User;
 import com.example.taskmanagerapi.security.AuthenticationServiceImpl;
 import com.example.taskmanagerapi.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -37,67 +36,62 @@ import org.springframework.web.multipart.MultipartFile;
 public class UserController {
     private final UserService userService;
     private final AuthenticationServiceImpl authenticationService;
-    private final UserMapper userMapper;
 
     @PostMapping("/registration")
     @Operation(summary = "Data for registration", description = "This endpoint allows users"
             + " to register a new account")
-    public UserResponseDto register(@Parameter(schema = @Schema(type = "String",
-            defaultValue = "{\n"
-                    + "    \"email\":\"alice.smith@gmail.com\", \n"
-                    + "    \"name\":\"alice smith\", \n"
-                    + "    \"password\":\"Alice12345%\", \n"
-                    + "    \"repeatPassword\":\"Alice12345%\"\n"
-                    + "}")) @RequestBody @Valid UserRegistrationRequestDto requestDto)
+    public ResponseEntity<UserResponseDto> register(@Parameter(schema = @Schema(type = "String",
+            defaultValue = Constants.DEFAULT_USER_REGISTRATION_REQUEST))
+                                        @RequestBody @Valid UserRegistrationRequestDto requestDto)
             throws UsernameNotFoundException {
-        return userService.register(requestDto);
+        UserResponseDto responseDto = userService.register(requestDto);
+        return new ResponseEntity<>(responseDto, HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
     @Operation(summary = "User authentication",
             description = "Authenticates a user and returns an access token")
-    public UserLoginResponseDto login(@Parameter(schema = @Schema(
-            type = "String", defaultValue = "{\n"
-            + "    \"email\":\"alice.smith@gmail.com\",\n"
-            + "    \"password\":\"Alice12345%\"\n"
-            + "}")) @RequestBody @Valid UserLoginRequestDto requestDto) {
-        return authenticationService.authenticate(requestDto);
+    public ResponseEntity<UserLoginResponseDto> login(@Parameter(schema = @Schema(
+            type = "String", defaultValue = Constants.DEFAULT_USER_LOGIN_REQUEST))
+                                          @RequestBody @Valid UserLoginRequestDto requestDto) {
+        UserLoginResponseDto loginResponseDto = authenticationService.authenticate(requestDto);
+        return ResponseEntity.ok(loginResponseDto);
     }
 
     @GetMapping("/me")
     @Operation(summary = "Get current user info",
             description = "Retrieve the information of the current user")
-    public UserResponseDto getUserInfo(Authentication authentication) {
-        User user = userService.getByEmail(authentication.getName());
-        return userMapper.toDto(user);
+    public ResponseEntity<UserResponseDto> getUserInfo(Authentication authentication) {
+        UserResponseDto userInfo = userService.getCurrentUserInfo(authentication);
+        return ResponseEntity.ok(userInfo);
     }
 
     @PatchMapping("/me")
-    public UserResponseDto updateUser(@RequestBody UserRequestDto requestDto,
+    @Operation(summary = "Update user", description = "This endpoint allows update "
+            + "user's information")
+    public ResponseEntity<UserResponseDto> updateUser(@Parameter(schema = @Schema(
+            type = "String", defaultValue = Constants.DEFAULT_USER_UPDATE_REQUEST))
+                                          @RequestBody UserRequestDto requestDto,
                                       Authentication authentication) {
-        User user = userService.getByEmail(authentication.getName());
-        user.setName(requestDto.getName());
-        user.setEmail(requestDto.getEmail());
-        user.setPhone(requestDto.getPhone());
-        user = userService.save(user);
-        return userMapper.toDto(user);
+        UserResponseDto updatedUser = userService.update(requestDto, authentication);
+        return ResponseEntity.ok(updatedUser);
     }
 
     @DeleteMapping()
-    public void deleteUser(Authentication authentication) {
-        User currentUser = userService.getByEmail(authentication.getName());
-        userService.delete(currentUser.getId());
+    @Operation(summary = "Delete user", description = "This endpoint allows delete user's account")
+    public ResponseEntity<Void> deleteUser(Authentication authentication) {
+        userService.delete(authentication);
+        return ResponseEntity.noContent().build();
     }
 
     @PostMapping(value = "/upload-profile-picture",
             consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    @Operation(summary = "Upload picture", description = "This endpoint allows users to upload "
+            + "their profile picture. The expected request part is a file with key 'image'.")
     public ResponseEntity<?> uploadProfilePicture(@RequestPart("image") MultipartFile image,
                                                        Authentication authentication) {
-        User user = userService.getByEmail(authentication.getName());
         try {
-            byte[] imageBytes = image.getBytes();
-            user.setProfilePicture(imageBytes);
-            userService.save(user);
+            userService.uploadProfilePicture(authentication, image);
             return ResponseEntity.ok("Profile picture updated successfully!");
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -106,13 +100,10 @@ public class UserController {
     }
 
     @GetMapping("/me/profile-picture")
+    @Operation(summary = "Get picture", description = "This endpoint allows users to retrieve "
+            + "their profile picture.")
     public ResponseEntity<byte[]> getProfilePicture(Authentication authentication) {
-        User user = userService.getByEmail(authentication.getName());
-        byte[] imageBytes = user.getProfilePicture();
-
-        return ResponseEntity
-                .ok()
-                .contentType(MediaType.IMAGE_JPEG)
-                .body(imageBytes);
+        byte[] imageBytes = userService.getProfilePicture(authentication);
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
     }
 }

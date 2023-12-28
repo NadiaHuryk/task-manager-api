@@ -1,9 +1,13 @@
 package com.example.taskmanagerapi.service;
 
 import com.example.taskmanagerapi.dto.request.UserRegistrationRequestDto;
+import com.example.taskmanagerapi.dto.request.UserRequestDto;
 import com.example.taskmanagerapi.dto.response.UserResponseDto;
 import com.example.taskmanagerapi.exeption.UsernameNotFoundException;
 import com.example.taskmanagerapi.model.User;
+import java.io.IOException;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface UserService {
     UserResponseDto register(UserRegistrationRequestDto requestDto)
@@ -13,7 +17,15 @@ public interface UserService {
 
     User getByEmail(String email);
 
-    User save(User user);
+    UserResponseDto getCurrentUserInfo(Authentication authentication);
 
-    void delete(Long id);
+    UserResponseDto update(UserRequestDto user, Authentication authentication);
+
+    void delete(Authentication authentication);
+
+    void uploadProfilePicture(Authentication authentication,
+
+                              MultipartFile image) throws IOException;
+
+    byte[] getProfilePicture(Authentication authentication);
 }
