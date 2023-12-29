@@ -1,14 +1,15 @@
 package com.example.taskmanagerapi.service;
 
-import com.example.taskmanagerapi.model.TaskGroup;
+import com.example.taskmanagerapi.dto.request.TaskGroupRequestDto;
+import com.example.taskmanagerapi.dto.response.TaskGroupResponseDto;
 import java.util.List;
 
 public interface TaskGroupService {
-    TaskGroup save(TaskGroup taskGroup);
+    TaskGroupResponseDto save(TaskGroupRequestDto taskGroup);
 
-    List<TaskGroup> findAll();
+    List<TaskGroupResponseDto> findAll();
 
     void delete(Long id);
 
-    TaskGroup get(Long id);
+    TaskGroupResponseDto get(Long id);
 }

@@ -1,16 +1,19 @@
 package com.example.taskmanagerapi.service;
 
-import com.example.taskmanagerapi.model.Task;
+import com.example.taskmanagerapi.dto.request.TaskRequestDto;
+import com.example.taskmanagerapi.dto.response.TaskResponseDto;
 import java.util.List;
+import org.springframework.security.core.Authentication;
 
 public interface TaskService {
-    Task save(Task tast);
+    TaskResponseDto save(TaskRequestDto task);
 
-    Task get(Long id);
+    TaskResponseDto get(Long id);
 
-    Task update(Task player);
+    TaskResponseDto updateTask(Long id, TaskRequestDto taskRequestDto,
+                               Authentication authentication);
 
-    void delete(Long id);
+    void delete(Long id, Authentication authentication);
 
-    List<Task> findAll(String email);
+    List<TaskResponseDto> findAll(Authentication authentication);
 }
