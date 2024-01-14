@@ -5,6 +5,7 @@ import { UserResponse } from '../model/user-response';
 import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { UserRequest } from "../model/user-request";
+import { environment } from "../../ environments/environment";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
@@ -15,7 +16,7 @@ const httpOptions = {
 })
 export class UserService {
 
-  private readonly baseUrl = 'http://localhost:8080/users';
+  private baseUrl = `${environment.apiUrl}/users`;
 
   constructor(private http: HttpClient) {}
 
