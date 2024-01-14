@@ -31,7 +31,7 @@ services:
   task-management-system:
     container_name: frontend-tm
     image: task-manager-frontend
-    build: ./task-management-system
+    build: Frontend
     ports:
       - "4202:4200"
     depends_on:
