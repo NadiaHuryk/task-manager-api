@@ -1,0 +1,74 @@
+<div class="task-edit">
+  <div class="task-edit__wrapper">
+    <div class="task-edit__header-wrapper">
+      <div class="task-edit__header-container">
+        <div class="task-edit__header-content">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+            <path d="M14.6565 7.32115H4.04305L10.3955 1.89258C10.4971 1.80508 10.4354 1.64258 10.3012 1.64258H8.69582C8.62508 1.64258 8.55796 1.66758 8.50536 1.71222L1.65045 7.56758C1.58767 7.62115 1.53732 7.68739 1.50281 7.76179C1.4683 7.8362 1.45044 7.91703 1.45044 7.99883C1.45044 8.08062 1.4683 8.16146 1.50281 8.23586C1.53732 8.31027 1.58767 8.3765 1.65045 8.43008L8.54526 14.3211C8.57247 14.3444 8.60512 14.3569 8.63959 14.3569H10.2993C10.4336 14.3569 10.4953 14.1926 10.3937 14.1069L4.04305 8.67829H14.6565C14.7363 8.67829 14.8016 8.61401 14.8016 8.53543V7.46401C14.8016 7.38544 14.7363 7.32115 14.6565 7.32115Z" fill="black" fill-opacity="0.85"/>
+          </svg>
+          <h2 class="task-edit__workspace-name">{{ taskGroupName }} Workspace</h2>
+        </div>
+        <div class="task-edit__actions-buttons">
+          <button class="task-edit__button-save" (click)="saveTask()">Save</button>
+          <div class="task-edit__share-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M10.75 9.37512C10.3047 9.37512 9.89375 9.53137 9.57187 9.79231L6.33437 7.45012C6.38859 7.15257 6.38859 6.84767 6.33437 6.55012L9.57187 4.20793C9.89375 4.46887 10.3047 4.62512 10.75 4.62512C11.7844 4.62512 12.625 3.7845 12.625 2.75012C12.625 1.71575 11.7844 0.875122 10.75 0.875122C9.71562 0.875122 8.875 1.71575 8.875 2.75012C8.875 2.93137 8.9 3.10481 8.94844 3.27043L5.87344 5.497C5.41719 4.89231 4.69219 4.50012 3.875 4.50012C2.49375 4.50012 1.375 5.61887 1.375 7.00012C1.375 8.38137 2.49375 9.50012 3.875 9.50012C4.69219 9.50012 5.41719 9.10794 5.87344 8.50325L8.94844 10.7298C8.9 10.8954 8.875 11.0704 8.875 11.2501C8.875 12.2845 9.71562 13.1251 10.75 13.1251C11.7844 13.1251 12.625 12.2845 12.625 11.2501C12.625 10.2157 11.7844 9.37512 10.75 9.37512ZM10.75 1.93762C11.1984 1.93762 11.5625 2.30168 11.5625 2.75012C11.5625 3.19856 11.1984 3.56262 10.75 3.56262C10.3016 3.56262 9.9375 3.19856 9.9375 2.75012C9.9375 2.30168 10.3016 1.93762 10.75 1.93762ZM3.875 8.37512C3.11719 8.37512 2.5 7.75794 2.5 7.00012C2.5 6.24231 3.11719 5.62512 3.875 5.62512C4.63281 5.62512 5.25 6.24231 5.25 7.00012C5.25 7.75794 4.63281 8.37512 3.875 8.37512ZM10.75 12.0626C10.3016 12.0626 9.9375 11.6986 9.9375 11.2501C9.9375 10.8017 10.3016 10.4376 10.75 10.4376C11.1984 10.4376 11.5625 10.8017 11.5625 11.2501C11.5625 11.6986 11.1984 12.0626 10.75 12.0626Z" fill="black" fill-opacity="0.85"/>
+            </svg>
+            <button class="task-edit__button-share">Share</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-edit__content-area">
+      <form class="task-edit__form-wrapper">
+        <div class="task-edit__form">
+          <div class="task-edit__title-wrapper">
+            <div class="task-edit__title-container">
+              <div class="task-edit__title-content">
+                <label for="title"></label>
+                <input  class="task-edit__input--title" type="text" id="title" [(ngModel)]="task.title" name="title">
+              </div>
+              <div class="task-edit__date-container">
+                <label for="dueDate"></label>
+                <input class="task-edit__input--date" type="date" id="dueDate" [(ngModel)]="task.dueDate" name="dueDate">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-edit__options">
+          <div class="task-edit__priority-status-container">
+            <div class="task-edit__priority">
+              <label for="priority" class="task-edit__priority-label">Priority:</label>
+              <select [ngClass]="priorityClass" id="priority" class="task-edit__priority-select" [(ngModel)]="task.priority" (ngModelChange)="onChangePriority($event)" name="priority">
+                <option value="HIGH">High</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="LOW">Low</option>
+              </select>
+            </div>
+            <div class="task-edit__status">
+              <label for="status" class="task-edit__status-label">Status:</label>
+              <span class="task-edit__status-circle" [ngClass]="statusCircleClass"></span>
+              <select id="status" class="task-edit__status-select" [(ngModel)]="task.status" (ngModelChange)="onChangeStatus($event)" name="status">
+                <option value="NOT_STARTED">Not Started</option>
+                <option value="IN_PROGRESS">In Progress</option>
+                <option value="COMPLETED">Completed</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="task-edit__description">
+        <div class="task-edit__textarea-container">
+       <textarea class="task-edit__textarea" [(ngModel)]="task.description" name="description" (input)="autoResizeTextarea($event)"></textarea>
+          <div class="task-edit__buttons">
+            <button class="task-edit__button-edit" (click)="saveTask()">Edit</button>
+            <button  class="task-edit__button-delete" (click)="clearTextarea()">Delete</button>
+          </div>
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

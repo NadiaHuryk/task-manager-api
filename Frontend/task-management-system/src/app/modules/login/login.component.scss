@@ -1,0 +1,230 @@
+@import '/src/styles.scss';
+
+.task-manager__container {
+  display: flex;
+  padding: 4px 0 4px 3px;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 25px;
+  box-sizing: border-box;
+  width: 295px;
+}
+
+.task-manager {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 384px;
+}
+
+.task-manager__title {
+  color: $character-title-85;
+  font-family: 'Nunito', sans-serif;
+  font-size: 33px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 38px;
+  margin: 0;
+  width: 269px;
+  white-space: nowrap;
+}
+
+.task-manager__logo-svg {
+  width: 52px;
+  height: 38px;
+}
+
+.task-manager__description {
+  color: $character-secondary-45;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  height: 340px;
+  width: 360px;
+  margin: auto;
+}
+
+.auth__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.auth-switcher {
+  display: flex;
+  height: 46px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.auth-switcher__links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.auth-switcher__link {
+  text-decoration: none;
+  color: $character-title-85;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.auth-switcher__link--login{
+  position: relative;
+}
+
+.auth-switcher__link--active {
+  color: $Primary-6;
+}
+
+.auth-switcher__link--active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 2px;
+  background-color: $Primary-6;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.login-form__group {
+  display: flex;
+  width: 360px;
+  height: 40px;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 2px;
+  border: 1px solid $Neutral-5;
+  background: $Neutral-1;
+  box-sizing: border-box;
+}
+
+.login-form__group input {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  text-align: center;
+  padding: 0;
+  width: 100%;
+  background-color: $Neutral-1;
+}
+
+.login-form__checkbox-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: $character-title-85;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.login-form__checkbox {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background: $Primary-6;
+}
+
+.login-form__options {
+  display: flex;
+  width: 360px;
+  justify-content: space-between;
+}
+
+.login-form__forgot-password {
+  text-decoration: none;
+  color: $Primary-6;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.button {
+  display: flex;
+  height: 40px;
+  width: 116px;
+  padding: 6px 15px;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid $Primary-6;
+  background:$Primary-6;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
+}
+
+.button__sign-in {
+  color: $Neutral-1;
+  text-align: center;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  background:$Primary-6;
+  font-weight: 400;
+  line-height: 24px;
+  border: none;
+  padding: 0;
+}
+
+.quick-sign-container {
+  display: flex;
+  width: 360px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quick-sign-container__section {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.quick-sign-container__text {
+  margin: 0;
+  color: $character-title-85;
+  text-align: center;
+  font-family: Roboto,sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.quick-sign-container__icons {
+  display: flex;
+  gap: 12px;
+}
