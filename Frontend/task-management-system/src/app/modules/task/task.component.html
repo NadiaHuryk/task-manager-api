@@ -1,0 +1,81 @@
+<div class="task-creation">
+  <div class="task-creation__wrapper">
+    <div class="task-creation__header-wrapper">
+      <div class="task-creation__header-container">
+        <div class="task-creation__content-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+            <path d="M14.6565 7.32115H4.04305L10.3955 1.89258C10.4971 1.80508 10.4354 1.64258 10.3012 1.64258H8.69582C8.62508 1.64258 8.55796 1.66758 8.50536 1.71222L1.65045 7.56758C1.58767 7.62115 1.53732 7.68739 1.50281 7.76179C1.4683 7.8362 1.45044 7.91703 1.45044 7.99883C1.45044 8.08062 1.4683 8.16146 1.50281 8.23586C1.53732 8.31027 1.58767 8.3765 1.65045 8.43008L8.54526 14.3211C8.57247 14.3444 8.60512 14.3569 8.63959 14.3569H10.2993C10.4336 14.3569 10.4953 14.1926 10.3937 14.1069L4.04305 8.67829H14.6565C14.7363 8.67829 14.8016 8.61401 14.8016 8.53543V7.46401C14.8016 7.38544 14.7363 7.32115 14.6565 7.32115Z" fill="black" fill-opacity="0.85"/>
+          </svg>
+          <h2 class="task-creation__header-title">New Task</h2>
+        </div>
+        <div class="task-creation__action-buttons">
+          <button class="task-creation__button-save">Save</button>
+          <div class="task-creation__share-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M10.75 9.37512C10.3047 9.37512 9.89375 9.53137 9.57187 9.79231L6.33437 7.45012C6.38859 7.15257 6.38859 6.84767 6.33437 6.55012L9.57187 4.20793C9.89375 4.46887 10.3047 4.62512 10.75 4.62512C11.7844 4.62512 12.625 3.7845 12.625 2.75012C12.625 1.71575 11.7844 0.875122 10.75 0.875122C9.71562 0.875122 8.875 1.71575 8.875 2.75012C8.875 2.93137 8.9 3.10481 8.94844 3.27043L5.87344 5.497C5.41719 4.89231 4.69219 4.50012 3.875 4.50012C2.49375 4.50012 1.375 5.61887 1.375 7.00012C1.375 8.38137 2.49375 9.50012 3.875 9.50012C4.69219 9.50012 5.41719 9.10794 5.87344 8.50325L8.94844 10.7298C8.9 10.8954 8.875 11.0704 8.875 11.2501C8.875 12.2845 9.71562 13.1251 10.75 13.1251C11.7844 13.1251 12.625 12.2845 12.625 11.2501C12.625 10.2157 11.7844 9.37512 10.75 9.37512ZM10.75 1.93762C11.1984 1.93762 11.5625 2.30168 11.5625 2.75012C11.5625 3.19856 11.1984 3.56262 10.75 3.56262C10.3016 3.56262 9.9375 3.19856 9.9375 2.75012C9.9375 2.30168 10.3016 1.93762 10.75 1.93762ZM3.875 8.37512C3.11719 8.37512 2.5 7.75794 2.5 7.00012C2.5 6.24231 3.11719 5.62512 3.875 5.62512C4.63281 5.62512 5.25 6.24231 5.25 7.00012C5.25 7.75794 4.63281 8.37512 3.875 8.37512ZM10.75 12.0626C10.3016 12.0626 9.9375 11.6986 9.9375 11.2501C9.9375 10.8017 10.3016 10.4376 10.75 10.4376C11.1984 10.4376 11.5625 10.8017 11.5625 11.2501C11.5625 11.6986 11.1984 12.0626 10.75 12.0626Z" fill="black" fill-opacity="0.85"/>
+            </svg>
+            <button class="task-creation__button-share">Share</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-creation__content-area">
+      <form class="task-creation__form-wrapper">
+        <div class="task-creation__form">
+          <div class="task-creation__title-wrapper">
+            <div class="task-creation__title-container">
+              <div class="task-creation__title-content">
+                <label for="title"></label>
+                <input  class="task-creation__input--title" type="text" id="title" [(ngModel)]="newTask.title" name="title" placeholder="Enter task title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <g clip-path="url(#clip0_179941_2403)">
+                    <path d="M3.45872 12.2841C3.49443 12.2841 3.53015 12.2805 3.56586 12.2752L6.56943 11.7484C6.60515 11.7412 6.63908 11.7252 6.66408 11.6984L14.2337 4.12874C14.2503 4.11222 14.2634 4.0926 14.2724 4.071C14.2813 4.0494 14.2859 4.02624 14.2859 4.00285C14.2859 3.97946 14.2813 3.95631 14.2724 3.9347C14.2634 3.9131 14.2503 3.89348 14.2337 3.87696L11.2659 0.907316C11.2319 0.873387 11.1873 0.85553 11.1391 0.85553C11.0909 0.85553 11.0462 0.873387 11.0123 0.907316L3.44265 8.47696C3.41586 8.50375 3.39979 8.53589 3.39265 8.5716L2.86586 11.5752C2.84849 11.6708 2.8547 11.7693 2.88395 11.862C2.91319 11.9547 2.9646 12.0389 3.03372 12.1073C3.15158 12.2216 3.29979 12.2841 3.45872 12.2841ZM4.66229 9.16982L11.1391 2.69482L12.448 4.00374L5.97122 10.4787L4.38372 10.7591L4.66229 9.16982ZM14.5712 13.7841H1.42836C1.11229 13.7841 0.856934 14.0395 0.856934 14.3555V14.9984C0.856934 15.077 0.921219 15.1412 0.999791 15.1412H14.9998C15.0784 15.1412 15.1426 15.077 15.1426 14.9984V14.3555C15.1426 14.0395 14.8873 13.7841 14.5712 13.7841Z" fill="#1890FF"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_179941_2403">
+                      <rect width="16" height="16" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <div class="task-creation__date-container">
+                <label for="dueDate"></label>
+                <input class="task-creation__input--date" type="date" id="dueDate" [(ngModel)]="newTask.dueDate" name="dueDate">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="task-creation__options">
+          <div class="task-creation__priority-status-container">
+            <div class="task-creation__priority">
+              <label for="priority" class="task-creation__priority-label">Priority:</label>
+              <select [ngClass]="priorityClass" id="priority" class="task-creation__priority-select" [(ngModel)]="newTask.priority" (ngModelChange)="onChangePriority($event)" name="priority">
+                <option value="HIGH">High</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="LOW">Low</option>
+              </select>
+            </div>
+            <div class="task-creation__status">
+              <label for="status" class="task-creation__status-label">Status:</label>
+              <span class="task-creation__status-circle" [ngClass]="statusCircleClass"></span>
+              <select id="status" class="task-creation__status-select" [(ngModel)]="newTask.status" (ngModelChange)="onChangeStatus($event)" name="status">
+                <option value="NOT_STARTED">Not Started</option>
+                <option value="IN_PROGRESS">In Progress</option>
+                <option value="COMPLETED">Completed</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="task-creation__description">
+          <ckeditor class="task-creation__editor" [editor]="Editor" [(ngModel)]="newTask.description" [ngModelOptions]="{standalone: true}"></ckeditor>
+        </div>
+        <div class="task-creation__buttons">
+          <button class="task-creation__btn-save" (click)="createTask()">Save</button>
+          <button class="task-creation__btn-clear" (click)="clearEditor()">Clear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,28 @@
+@import '/src/styles.scss';
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  background: #001529;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header__user-info {
+  display: flex;
+  padding: 0 12px;
+  align-items: center;
+  align-self: stretch;
+  color: $Neutral-1;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
